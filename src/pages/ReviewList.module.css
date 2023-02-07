@@ -1,3 +1,7 @@
+.list_review > * {
+    text-decoration: none;
+    color: var(--primary-text-colour);
+}
 
 
 .list_review:first-child {
@@ -6,11 +10,9 @@
 }
 .list_review {
     list-style: none;
-    color: var(--primary-text-colour);
     border-bottom: 2px dotted var(--secondary-text-colour);
     min-width: 50vw;
     margin: 0.3rem;
-
 }
 
 .linkto_review:hover {
@@ -30,6 +32,12 @@
 }
 
 .image_reviews-list {
-    max-width: 10vw;
+    max-height: 20vw;
+    border-radius: 20%;
+    border: 3px double pink;
     
+}
+
+.hidden {
+    display: block;
 }
