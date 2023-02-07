@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  
+
+  --primary-text-colour: rgb(64, 136, 235);
+  --secondary-text-colour: rgb(114, 154, 211);
 }
 
 /*Temp Styling*/
@@ -19,6 +23,12 @@ ul {
   display: flex;
   
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .container_search {
   border: 3px solid green;
 }
@@ -26,3 +36,4 @@ ul {
 .hidden { 
   display: none;
 }
+

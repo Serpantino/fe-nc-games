@@ -22,7 +22,7 @@ function App() {
       <Search />
       <Home>
         <Routes>
-          <Route path={["/", "/reviews"]} element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/review:review_id" element={<Review />} />
           <Route path="*" element={<NotFound />} />
