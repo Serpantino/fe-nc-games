@@ -16,11 +16,16 @@
     padding-top: 0.5rem;
     color: var(--secondary-text-colour);
     border: 5px outset var(--secondary-text-colour);
-    min-width: 93%;
     margin: 0.3rem;
     background-color: var(--primary-bg-colour);
     border-radius: 10px;
     font-weight: bolder;
+}
+.linkto_review {
+    min-width: 93%;
+    list-style: none;
+    text-decoration: none;
+
 }
 
 .list_review:hover {
@@ -52,6 +57,7 @@
 
 .hidden {
     display: block;
+}
 
 ::-webkit-scrollbar {
     background-color: var(--scrollbar-bg-colour);
