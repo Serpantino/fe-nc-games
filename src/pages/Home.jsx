@@ -9,9 +9,7 @@ export default function Home() {
   const currentLocation = useLocation();
 
   useEffect(() => {
-    console.log("Individual Page:", individualPage);
-    // console.log("Selected Review:", selectedReview);
-    console.log(currentLocation);
+  
     if (!currentLocation.pathname.includes('/review/')) {
       setIndividualPage(false);
     }

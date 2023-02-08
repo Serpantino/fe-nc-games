@@ -16,9 +16,8 @@ export default function ReviewList({setIndividualPage, setSelectedReview, select
     } else {
       notInitialRender.current = true;
       
-      console.log("1st render");
+      
       FetchReviews().then((reviewData) => {
-        console.log(reviewData);
         setReviews(reviewData);
       });
     }
@@ -53,15 +52,10 @@ export default function ReviewList({setIndividualPage, setSelectedReview, select
   }
   
   function handleSelectedReview(e, review) {
-    console.log('review in handleSelect', review);
-    // e.preventDefault();
+  
     setIndividualPage(true);
     setSelectedReview(review);   
-    // <article
-    //   className={styles[("card_individual-review", "hidden")]}
-    //   aria-label={`review of ${review.title}`}
-    // ></article>
-    
+
   }
   
   

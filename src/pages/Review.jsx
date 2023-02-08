@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Review.module.css";
 
+import Comments from '../components/Comments';
+
 export default function Review({ selectedReview }) {
   const {
     review_id,
@@ -48,33 +50,9 @@ export default function Review({ selectedReview }) {
         <p>{review_body}</p>
       </section>
       <section className={styles["container_review-comments"]}>
-        <div>
-          <h4>Comment Placeholder</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-            incidunt? Distinctio unde harum cum dicta officia dignissimos
-            necessitatibus, vel natus, deleniti autem repellendus laborum nobis!
-            Sunt modi explicabo asperiores laudantium.
-          </p>
-        </div>
-        <div>
-          <h4>Comment Placeholder</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-            incidunt? Distinctio unde harum cum dicta officia dignissimos
-            necessitatibus, vel natus, deleniti autem repellendus laborum nobis!
-            Sunt modi explicabo asperiores laudantium.
-          </p>
-        </div>
-        <div>
-          <h4>Comment Placeholder</h4>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate,
-            incidunt? Distinctio unde harum cum dicta officia dignissimos
-            necessitatibus, vel natus, deleniti autem repellendus laborum nobis!
-            Sunt modi explicabo asperiores laudantium.
-          </p>
-        </div>
+        <ul>
+            <Comments review_id={review_id}/>
+        </ul>
       </section>
     </article>
   );

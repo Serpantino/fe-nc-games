@@ -21,6 +21,11 @@
     filter: brightness(130%);
 }
 
+.linkto_review:active {
+    filter: brightness(70%);
+    transform: scale(85%);
+}
+
 .ul-container_reviews {
     display: flex;
     flex-direction: column;
