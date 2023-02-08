@@ -2,8 +2,21 @@
   text-align: center;
   
 
-  --primary-text-colour: rgb(64, 136, 235);
-  --secondary-text-colour: rgb(114, 154, 211);
+  --primary-text-colour: #4088eb;
+  --secondary-text-colour: #1B529E;
+  --tertiary-colour: #Ebb03F;
+  /* --primary-bg-colour: #ebaf3f8e; */
+  --primary-bg-colour: #88B2EE;
+  --secondary-bg-colour: #1B529E;
+
+  --scrollbar-bar-colour: #1D3D6B;
+  --scrollbar-bg-colour: #88B2EE;
+  --scrollbar-border-colour: #3878D1;
+  
+  /*
+    Shades: of prim-text: #2E62AB, #1D3D6B, <--Dark| Light --> #428EF7, #3878D1
+    mono: #1D3D6B, #88B2EE, #3D506B, #3269B8
+  */
 }
 
 /*Temp Styling*/
