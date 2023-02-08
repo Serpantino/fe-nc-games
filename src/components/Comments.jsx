@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { FetchReviewComments } from "./FetchData";
-import styles from "./Comments.module.css"
+import styles from "./Comments.module.css";
 
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
@@ -21,19 +21,26 @@ export default function Comments({ review_id }) {
   function buildComments() {
     console.log("rev comments", comments.comments);
     if (comments.comments) {
-      const buildCommentsJSX = comments.comments.map( comment => {
-        console.log('comment', comment);
+      const buildCommentsJSX = comments.comments.map((comment) => {
+        console.log("comment", comment);
         const { author, body, comment_id, created_at, review_id, votes } =
           comment;
         return (
           <li className={styles.list_comment} key={review_id + comment_id}>
-            <h4>
-              Written By: <cite>{author}</cite>{" "}
-              <span className={styles['text_comment-created-at']}>{created_at}</span>
-            </h4>
-            <p>{body}</p>
-            <button className={styles['button_up-vote']}>Vote +</button>
-            <button className={styles['button_down-vote']}>Vote -</button>
+            <header className={styles.header_comment}>
+              <h4>
+                Written By: <cite>{author}</cite>{" "}
+                <span className={styles["text_comment-created-at"]}>
+                  {created_at}
+                </span>
+              </h4>
+            </header>
+            <p className={styles.comment_text}>{body}</p>
+            <footer className={styles["container_comment-votes"]}>
+              <button className={styles["button_down-vote"]}>Vote -</button>
+            <p className={styles['number-of_votes']}>{votes}</p>
+              <button className={styles["button_up-vote"]}>Vote +</button>
+            </footer>
           </li>
         );
       });
@@ -44,9 +51,11 @@ export default function Comments({ review_id }) {
   }
 
   return (
-    <section className= {styles.container_comments}>
+    <section className={styles.container_comments}>
       <h3>Comments Section</h3>
-      <ul className={styles['container_review-comments']}>{commentsJSX.length > 0 && commentsJSX}</ul>
+      <ul className={styles["container_review-comments"]}>
+        {commentsJSX.length > 0 && commentsJSX}
+      </ul>
     </section>
   );
 }
