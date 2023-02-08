@@ -38,5 +38,10 @@ export default function ReviewList() {
     return setReviewsJSX(tempReviewArray);
   }
 
-  return <ul className={styles['ul-container_reviews']}>{reviewsJSX.length > 0 ? reviewsJSX : "....Loading"}</ul>;
+  return(
+    <section className={styles['container_review-list']}>
+      <h2>Reviews</h2>
+     <ul className={styles['ul-container_reviews']}>{reviewsJSX.length > 0 ? reviewsJSX : "....Loading"}</ul>
+    </section>
+  );
 }
