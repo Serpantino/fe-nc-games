@@ -1,7 +1,4 @@
 
-
-
-
 .container_nav {
     border: 3px solid rgb(34, 34, 97);
     display: flex;
@@ -12,6 +9,15 @@
 
   .container_nav > * {
     margin: 0.35rem 0.5rem;
+}
+
+
+.navbar_link {
+    margin: 0.35rem;
+    text-decoration: none;
+
+}
+
+.container_navbar-links {
     list-style: none;
 }
-  
