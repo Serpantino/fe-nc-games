@@ -1,0 +1,42 @@
+
+.page_review {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image_single-review {
+    max-height: 30vh;
+    max-width: auto;
+}
+
+.review_header {
+    background-color: salmon;
+ 
+}
+
+.container_review-body {
+    margin-top: 0.5rem;
+    background-color: pink;
+    letter-spacing: 0.02rem;
+    line-height: 1.325rem;
+    color: slateblue;
+    padding: 1rem;
+    box-sizing: border-box;
+    border: 3px inset rgb(182, 135, 142);
+}
+
+.container_review-comments {
+    margin-top: 0.5rem;
+    background-color:coral;
+    letter-spacing: 0.02rem;
+    line-height: 1rem;   
+    font-weight: lighter;
+    color: #fff;
+}
+
+.container_review-comments > div {
+    border: 3px inset rgb(176, 93, 64);
+}

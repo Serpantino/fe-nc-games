@@ -1,3 +1,4 @@
+
 .container_review-list > ul {
     margin-top: 0.5rem;
     max-height: 80vh;
@@ -20,7 +21,6 @@
     background-color: var(--primary-bg-colour);
     border-radius: 10px;
     font-weight: bolder;
-    
 }
 
 .list_review:hover {
@@ -43,9 +43,15 @@
 
 
 .image_reviews-list {
-    max-width: 10vw;
+    max-height: 20vw;
+    border-radius: 20%;
+    border: 3px double pink;
     
 }
+
+
+.hidden {
+    display: block;
 
 ::-webkit-scrollbar {
     background-color: var(--scrollbar-bg-colour);
