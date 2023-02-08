@@ -13,6 +13,7 @@
   --scrollbar-bg-colour: #88B2EE;
   --scrollbar-border-colour: #3878D1;
   
+  --primary-shadow:1px 2px 1px #1D3D6B, 0 0 1px #88B2EE, 0 1px 2px #1B529E;
   /*
     Shades: of prim-text: #2E62AB, #1D3D6B, <--Dark| Light --> #428EF7, #3878D1
     mono: #1D3D6B, #88B2EE, #3D506B, #3269B8

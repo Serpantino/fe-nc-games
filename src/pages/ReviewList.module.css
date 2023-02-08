@@ -1,5 +1,11 @@
-
-.container_review-list > ul {
+.container_review-list > h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: var(--primary-text-colour);
+    text-shadow: var(--primary-shadow);
+    margin-top: 0.5rem;
+}
+.container_review-list > ul  {
     margin-top: 0.5rem;
     max-height: 80vh;
 }
@@ -22,7 +28,7 @@
     font-weight: bolder;
 }
 .linkto_review {
-    min-width: 93%;
+    width: 93%;
     list-style: none;
     text-decoration: none;
 

@@ -1,6 +1,6 @@
 import { FetchReviews } from "../components/FetchData";
 import { useState, useEffect, useRef } from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./ReviewList.module.css";
 
 export default function ReviewList({
@@ -10,7 +10,7 @@ export default function ReviewList({
 }) {
   const [reviews, setReviews] = useState([]);
   let notInitialRender = useRef(false);
-  const navigatePage = useNavigate();
+
 
   const [reviewsJSX, setReviewsJSX] = useState([]);
 
@@ -29,12 +29,12 @@ export default function ReviewList({
   function buildReviewsJSX() {
     const tempReviewArray = reviews.map((review) => {
       return (
-            <Link
-              to={`/review/${review.review_id}`}
-              className={styles.linkto_review}
-              onClick={(e) => handleSelectedReview(e, review)}
-            >
-        <li key={review.review_id} className={styles.list_review}>
+        <Link
+          to={`/review/${review.review_id}`}
+          className={styles.linkto_review}
+          onClick={(e) => handleSelectedReview(e, review)}
+        >
+          <li key={review.review_id} className={styles.list_review}>
             <img
               src={review.review_img_url}
               aria-hidden="true"
@@ -60,8 +60,11 @@ export default function ReviewList({
   }
 
   return (
-    <ul className={styles["ul-container_reviews"]}>
-      {reviewsJSX.length > 0 ? reviewsJSX : "....Loading"}
-    </ul>
+    <section className={styles['container_review-list']}>
+      <h2>Reviews</h2>
+      <ul className={styles["ul-container_reviews"]}>
+        {reviewsJSX.length > 0 ? reviewsJSX : "....Loading"}
+      </ul>
+    </section>
   );
 }
