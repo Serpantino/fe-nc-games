@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import UserSettings from './UserSettings';
+import styles from './Nav.module.css';
 
 export default function Nav() {
   function resetScroll() {
@@ -12,9 +13,9 @@ export default function Nav() {
   };
 
   return (
-    <nav>
+    <nav className={styles.container_nav}>
       <h3>NC Games</h3>
-      <ul className="container_navbar-links">
+      <ul className= {styles['container_navbar-links']}>
        
         <li className="navbar_link">
           <NavLink
