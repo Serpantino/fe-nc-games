@@ -9,27 +9,29 @@ export default function Comments({ review_id }) {
 
   useEffect(() => {
     if (notInitialRender.current) {
+      console.log('initialSet', comments)
       buildComments();
     } else {
       FetchReviewComments(review_id).then((reviewComments) => {
-        setComments(reviewComments);
+        setComments(reviewComments.comments);
         notInitialRender.current = true;
       });
     }
   }, [review_id, comments]);
 
+
+
   function buildComments() {
-    console.log("rev comments", comments.comments);
-    if (comments.comments) {
-      const buildCommentsJSX = comments.comments.map((comment) => {
-        console.log("comment", comment);
+    if (comments) {
+      const buildCommentsJSX = comments.map((comment) => {
         const { author, body, comment_id, created_at, review_id, votes } =
           comment;
+          
         return (
           <li className={styles.list_comment} key={review_id + comment_id}>
             <header className={styles.header_comment}>
               <h4>
-                Written By: <cite>{author}</cite>{" "}
+                Written By: <cite>{author ? author : "Mr E or Ms Ing"}</cite>{" "}
                 <span className={styles["text_comment-created-at"]}>
                   {created_at}
                 </span>
@@ -38,17 +40,40 @@ export default function Comments({ review_id }) {
             <p className={styles.comment_text}>{body}</p>
             <footer className={styles["container_comment-votes"]}>
               <button className={styles["button_down-vote"]}>Vote -</button>
-            <p className={styles['number-of_votes']}>{votes}</p>
-              <button className={styles["button_up-vote"]}>Vote +</button>
+              <p className={styles["number-of_votes"]}>{votes}</p>
+              <button
+                className={styles["button_up-vote"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleVoteClick(comment_id, 1);
+                }}
+              >
+                Vote +
+              </button>
             </footer>
           </li>
         );
       });
+
       setCommentsJSX(buildCommentsJSX);
     } else {
       setCommentsJSX(<h4>There are currently no comments for this review</h4>);
     }
   }
+
+  function handleVoteClick(comment_id, value) {
+    const updateVotes = {...comments};
+    console.log(updateVotes);
+    for (const i in updateVotes) {
+      console.log(updateVotes[i].comment_id);
+
+      if(updateVotes[i].comment_id === comment_id) {
+        updateVotes[i].votes = updateVotes[i].votes +1
+        console.log(updateVotes);
+        setComments(updateVotes);
+        }
+      }
+    }
 
   return (
     <section className={styles.container_comments}>
