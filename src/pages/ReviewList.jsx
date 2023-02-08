@@ -55,9 +55,12 @@ export default function ReviewList({
   }
 
   function handleSelectedReview(e, review) {
+
     setIndividualPage(true);
-    setSelectedReview(review);
+    setSelectedReview(review);   
+
   }
+  
 
   return (
     <section className={styles['container_review-list']}>

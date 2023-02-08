@@ -27,7 +27,7 @@
     box-sizing: border-box;
     border: 3px inset rgb(182, 135, 142);
 }
-
+/* 
 .container_review-comments {
     margin-top: 0.5rem;
     background-color:coral;
@@ -39,4 +39,4 @@
 
 .container_review-comments > div {
     border: 3px inset rgb(176, 93, 64);
-}
+} */
