@@ -7,6 +7,7 @@ export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
   const [commentsJSX, setCommentsJSX] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [rerenderMe, setRerenderMe] = useState(1);
   let notInitialRender = useRef(false);
   
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function Comments({ review_id }) {
         notInitialRender.current = true;
       });
     }
-  }, [review_id, comments]);
+  }, [review_id, comments, rerenderMe]);
   
   function buildComments() {
 
@@ -55,7 +56,7 @@ export default function Comments({ review_id }) {
   return (
     <section className={styles.container_comments}>
       <h3>Comments Section</h3>
-      {showModal && <NewCommentModal setShowModal={setShowModal}/>}
+      {showModal && <NewCommentModal setShowModal={setShowModal} review_id={review_id} setRerenderMe={setRerenderMe}/>}
       <button onClick={(e)=> handleNewCommentModal(e)}> {showModal ? 'Cancel' : 'New Comment'} </button>
       <ul className={styles["container_review-comments"]}>
         {commentsJSX.length > 0 && commentsJSX}
