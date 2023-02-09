@@ -6,6 +6,9 @@
     flex-direction: column;
     padding: 0.325rem 0.568rem;
     background-color: var(--primary-bg-colour);
+    border-radius: 10px;
+    border: 5px inset var(--secondary-bg-colour);
+    box-shadow: var(--primary-shadow);
 }
 
 
@@ -28,6 +31,8 @@
  margin: 0.35rem 0.6rem;
  background-color: var(--tertiary-bg-colour);
  color: wheat;
+ text-transform: uppercase;
+ text-shadow: var(--primary-text-outline);
 }
 
 .button_up-vote:hover, .button_down-vote:hover {

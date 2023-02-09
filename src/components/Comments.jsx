@@ -9,7 +9,7 @@ export default function Comments({ review_id }) {
 
   useEffect(() => {
     if (notInitialRender.current) {
-      // console.log('initialSet', comments)
+      
       buildComments();
       //.then Do the server patch.
     } else {

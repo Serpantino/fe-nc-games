@@ -24,20 +24,18 @@ export async function FetchReviewComments(id) {
 
 export async function PatchReviewVotes(review_id, votes) {
   try {
-    // console.log("patch attempt", review_id, votes);
-    // const res = await fetch(
-    //   `https://nc-games-test.onrender.com/api/reviews/${review_id}`,
-    //   {
-    //     method: "PATCH",
-    //     body: JSON.stringify({ inc_votes: votes }),
-    //     headers: { "Content-type": "application/json; charset=UTF-8" }
-    //   }
-    // );
-    // const data = res.json();
+    const res = await fetch(
+      `https://nc-games-test.onrender.com/api/reviews/${review_id}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({inc_votes: votes}),
+        headers: { "Content-type": "application/json; charset=UTF-8" }
+      }
+    );
+    const data = await res.json();
 
-    const res = await axios.patch(`https://nc-games-test.onrender.com/api/reviews/${review_id}`, {inc_votes: votes});
-    const data = res.json();
-    console.log("patch", data);
+    // let res = await axios.patch(`https://nc-games-test.onrender.com/api/reviews/${review_id}`, {inc_votes: votes});
+    // let data = res.data;
   } catch (error) {
     console.error(error);
   }

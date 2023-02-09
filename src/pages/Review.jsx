@@ -70,11 +70,10 @@ export default function Review({ selectedReview, setSelectedReview }) {
   );
 
   function handleVotes(operand) {
-    console.log(typeof selectedReview ,'<=== selectedReview Type');
+    
     const updateVotes = {...selectedReview};
     let voteAmendment = operand === "+" ? updateVotes.votes + 1 : updateVotes.votes -1;
     const patchValue = operand === "+" ? +1 : -1;
-    console.log('vAm', patchValue);
     updateVotes.votes = voteAmendment;
     setSelectedReview(updateVotes);
     PatchReviewVotes(review_id, patchValue); 

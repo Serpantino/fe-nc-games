@@ -41,16 +41,32 @@
     box-shadow: var(--primary-shadow);
     border-radius: 10px;
 }
-/* 
-.container_review-comments {
-    margin-top: 0.5rem;
-    background-color:coral;
-    letter-spacing: 0.02rem;
-    line-height: 1rem;   
-    font-weight: lighter;
-    color: #fff;
+
+.button_inc-review-vote, .button_dec-review-vote {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: wheat;
+    border: 3px outset var(--primary-bg-colour);
+    
+    background-color: var(--tertiary-bg-colour);
+    text-shadow: var(--primary-text-outline);
+    box-shadow: var(--primary-shadow);
+    margin: 0.5rem 0.35rem;
 }
 
-.container_review-comments > div {
-    border: 3px inset rgb(176, 93, 64);
-} */
+.button_inc-review-vote:hover, .button_dec-review-vote:hover {
+    transform: scale(110%);
+    cursor: pointer;
+    filter: brightness(120%);
+}
+
+.button_inc-review-vote:active, .button_dec-review-vote:active {
+    transform: scale(95%);
+    cursor: pointer;
+    filter: brightness(90%);
+    border-style: ridge;
+}
