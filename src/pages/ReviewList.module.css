@@ -73,6 +73,7 @@
 ::-webkit-scrollbar {
     background-color: var(--scrollbar-bg-colour);
     filter: brightness(200%);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
