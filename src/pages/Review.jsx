@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { PatchReviewVotes } from "../components/FetchData";
 import styles from "./Review.module.css";
 
-import Comments from '../components/Comments';
+import Comments from "../components/Comments";
 
-export default function Review({ selectedReview }) {
+export default function Review({ selectedReview, setSelectedReview }) {
   const {
     review_id,
     category,
@@ -39,11 +40,22 @@ export default function Review({ selectedReview }) {
             alt="Photo (supposedly) of the game"
             className={styles["image_single-review"]}
           />
-          <h4>
-            Review By: <cite>{owner}</cite> <br />
-            <small>Created at: {reviewPostDate}</small>
-          </h4>{" "}
-          {/*TODO Add link to user*/}
+          <div className={styles['container_header-sub']}>
+            <h4>
+              Review By: <cite>{owner}</cite> <br />
+              <small>Created at: {reviewPostDate}</small>
+            </h4>
+            {/*TODO Add link to user*/}
+            <p>
+              <button className={styles['button_dec-review-vote']} onClick={(e) => {
+                handleVotes("-")
+              }}>-</button>
+              Votes: <span className={styles['text_data-review-votes']}>{votes}</span>
+            <button className={styles['button_inc-review-vote']} onClick={(e) => {
+              handleVotes("+")
+            }}>+</button>
+            </p>
+          </div>
         </div>
       </header>
       <section className={styles["container_review-body"]}>
@@ -51,9 +63,21 @@ export default function Review({ selectedReview }) {
       </section>
       <section className={styles["container_review-comments"]}>
         <ul>
-            <Comments review_id={review_id}/>
+          <Comments review_id={review_id} />
         </ul>
       </section>
     </article>
   );
+
+  function handleVotes(operand) {
+    console.log(typeof selectedReview ,'<=== selectedReview Type');
+    const updateVotes = {...selectedReview};
+    let voteAmendment = operand === "+" ? updateVotes.votes + 1 : updateVotes.votes -1;
+    const patchValue = operand === "+" ? +1 : -1;
+    console.log('vAm', patchValue);
+    updateVotes.votes = voteAmendment;
+    setSelectedReview(updateVotes);
+    PatchReviewVotes(review_id, patchValue); 
+
+  }
 }

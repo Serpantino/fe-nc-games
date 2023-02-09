@@ -9,8 +9,9 @@ export default function Comments({ review_id }) {
 
   useEffect(() => {
     if (notInitialRender.current) {
-      console.log('initialSet', comments)
+      // console.log('initialSet', comments)
       buildComments();
+      //.then Do the server patch.
     } else {
       FetchReviewComments(review_id).then((reviewComments) => {
         setComments(reviewComments.comments);
@@ -19,14 +20,12 @@ export default function Comments({ review_id }) {
     }
   }, [review_id, comments]);
 
-
-
   function buildComments() {
     if (comments) {
       const buildCommentsJSX = comments.map((comment) => {
         const { author, body, comment_id, created_at, review_id, votes } =
           comment;
-          
+
         return (
           <li className={styles.list_comment} key={review_id + comment_id}>
             <header className={styles.header_comment}>
@@ -39,13 +38,21 @@ export default function Comments({ review_id }) {
             </header>
             <p className={styles.comment_text}>{body}</p>
             <footer className={styles["container_comment-votes"]}>
-              <button className={styles["button_down-vote"]}>Vote -</button>
+              <button
+                className={styles["button_down-vote"]}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleVoteClick(comment_id, "-");
+                }}
+              >
+                Vote -
+              </button>
               <p className={styles["number-of_votes"]}>{votes}</p>
               <button
                 className={styles["button_up-vote"]}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleVoteClick(comment_id, 1);
+                  handleVoteClick(comment_id, "+");
                 }}
               >
                 Vote +
@@ -61,19 +68,18 @@ export default function Comments({ review_id }) {
     }
   }
 
-  function handleVoteClick(comment_id, value) {
-    const updateVotes = {...comments};
-    console.log(updateVotes);
-    for (const i in updateVotes) {
-      console.log(updateVotes[i].comment_id);
+  function handleVoteClick(comment_id, operand) {
+    const updateVotes = [...comments];
 
-      if(updateVotes[i].comment_id === comment_id) {
-        updateVotes[i].votes = updateVotes[i].votes +1
-        console.log(updateVotes);
+    for (const i in updateVotes) {
+      if (updateVotes[i].comment_id === comment_id) {
+        updateVotes[i].votes =
+          operand === "+" ? updateVotes[i].votes + 1 : updateVotes[i].votes - 1;
+
         setComments(updateVotes);
-        }
       }
     }
+  }
 
   return (
     <section className={styles.container_comments}>

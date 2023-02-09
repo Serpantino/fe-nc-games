@@ -2,7 +2,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--primary-text-colour);
-    text-shadow: var(--primary-shadow);
+    text-shadow: var(--primary-shadow), var(--secondary-shadow);
     margin-top: 0.5rem;
 }
 .container_review-list > ul  {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {useLocation} from "react-router-dom";
+import styles from "./Home.module.css";
 import ReviewList from "./ReviewList";
 import Review from "./Review";
 
@@ -18,9 +19,9 @@ export default function Home() {
 
 
   return (
-    <main>
+    <main className={styles.container_home}>
       {!individualPage && <ReviewList setIndividualPage={setIndividualPage} setSelectedReview={setSelectedReview} selectedReview={selectedReview}/>}
-      {individualPage && <Review selectedReview={selectedReview}/>}
+      {individualPage && <Review selectedReview={selectedReview} setSelectedReview={setSelectedReview}/>}
     </main>
   );
 }

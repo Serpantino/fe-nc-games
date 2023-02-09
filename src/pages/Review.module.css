@@ -13,19 +13,33 @@
 }
 
 .review_header {
-    background-color: salmon;
+    background-color: var(--primary-bg-colour);
+    padding: 0.3rem 0.3rem;
+    border-radius: 10px;
+    box-shadow: var(--secondary-shadow);
  
+}
+
+.container_header-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .container_review-body {
     margin-top: 0.5rem;
-    background-color: pink;
+    background-color: var(--tertiary-bg-colour);
+    
     letter-spacing: 0.02rem;
     line-height: 1.325rem;
-    color: slateblue;
+    color: wheat;
+    text-shadow: var(--primary-shadow);
     padding: 1rem;
     box-sizing: border-box;
-    border: 3px inset rgb(182, 135, 142);
+    border: 05px double var(--secondary-bg-colour);
+    box-shadow: var(--primary-shadow);
+    border-radius: 10px;
 }
 /* 
 .container_review-comments {
