@@ -70,3 +70,9 @@
     filter: brightness(90%);
     border-style: ridge;
 }
+
+.button_inc-review-vote:disabled, .button_dec-review-vote:disabled {
+    filter: saturate(40%);
+    border-style: inset;
+    box-shadow: none;
+}

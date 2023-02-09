@@ -19,7 +19,8 @@ export default function Review({ selectedReview, setSelectedReview }) {
     votes,
   } = selectedReview;
 
-  let params = useParams();
+  const [hasVoted, setHasVoted] = useState(false);
+
   const reviewPostDate = created_at
     .split("")
     .slice(0, 10)
@@ -40,20 +41,35 @@ export default function Review({ selectedReview, setSelectedReview }) {
             alt="Photo (supposedly) of the game"
             className={styles["image_single-review"]}
           />
-          <div className={styles['container_header-sub']}>
+          <div className={styles["container_header-sub"]}>
             <h4>
               Review By: <cite>{owner}</cite> <br />
               <small>Created at: {reviewPostDate}</small>
             </h4>
             {/*TODO Add link to user*/}
             <p>
-              <button className={styles['button_dec-review-vote']} onClick={(e) => {
-                handleVotes("-")
-              }}>-</button>
-              Votes: <span className={styles['text_data-review-votes']}>{votes}</span>
-            <button className={styles['button_inc-review-vote']} onClick={(e) => {
-              handleVotes("+")
-            }}>+</button>
+              <button
+                className={styles["button_dec-review-vote"]}
+                onClick={(e) => {
+                  setHasVoted(false);
+                  handleVotes("-");
+                }}
+                disabled={!hasVoted}
+              >
+                -
+              </button>
+              Votes:{" "}
+              <span className={styles["text_data-review-votes"]}>{votes}</span>
+              <button
+                className={styles["button_inc-review-vote"]}
+                onClick={(e) => {
+                  setHasVoted(true);
+                  handleVotes("+");
+                }}
+                disabled={hasVoted}
+              >
+                +
+              </button>
             </p>
           </div>
         </div>
@@ -70,13 +86,12 @@ export default function Review({ selectedReview, setSelectedReview }) {
   );
 
   function handleVotes(operand) {
-    
-    const updateVotes = {...selectedReview};
-    let voteAmendment = operand === "+" ? updateVotes.votes + 1 : updateVotes.votes -1;
+    const updateVotes = { ...selectedReview };
+    let voteAmendment =
+      operand === "+" ? updateVotes.votes + 1 : updateVotes.votes - 1;
     const patchValue = operand === "+" ? +1 : -1;
     updateVotes.votes = voteAmendment;
     setSelectedReview(updateVotes);
-    PatchReviewVotes(review_id, patchValue); 
-
+    PatchReviewVotes(review_id, patchValue);
   }
 }
