@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from "react";
 import { FetchReviewComments } from "./FetchData";
+import NewCommentModal from "./NewCommentModal";
 import styles from "./Comments.module.css";
 
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
   const [commentsJSX, setCommentsJSX] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   let notInitialRender = useRef(false);
-
+  
   useEffect(() => {
     if (notInitialRender.current) {
       buildComments();
@@ -17,12 +19,12 @@ export default function Comments({ review_id }) {
       });
     }
   }, [review_id, comments]);
-
+  
   function buildComments() {
-    console.log("rev comments", comments.comments);
+
     if (comments.comments) {
       const buildCommentsJSX = comments.comments.map((comment) => {
-        console.log("comment", comment);
+      
         const { author, body, comment_id, created_at, review_id, votes } =
           comment;
         return (
@@ -53,9 +55,16 @@ export default function Comments({ review_id }) {
   return (
     <section className={styles.container_comments}>
       <h3>Comments Section</h3>
+      {showModal && <NewCommentModal setShowModal={setShowModal}/>}
+      <button onClick={(e)=> handleNewCommentModal(e)}> {showModal ? 'Cancel' : 'New Comment'} </button>
       <ul className={styles["container_review-comments"]}>
         {commentsJSX.length > 0 && commentsJSX}
       </ul>
     </section>
   );
+
+  function handleNewCommentModal(e) {
+    e.preventDefault();
+    setShowModal(!showModal);
+  }
 }
