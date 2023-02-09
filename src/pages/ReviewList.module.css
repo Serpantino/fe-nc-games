@@ -2,7 +2,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     color: var(--primary-text-colour);
-    text-shadow: var(--primary-shadow);
+    text-shadow: var(--primary-shadow), var(--secondary-shadow);
     margin-top: 0.5rem;
 }
 .container_review-list > ul  {
@@ -73,6 +73,7 @@
 ::-webkit-scrollbar {
     background-color: var(--scrollbar-bg-colour);
     filter: brightness(200%);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
