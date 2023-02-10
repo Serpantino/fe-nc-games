@@ -1,9 +1,12 @@
-import {useState} from 'react';
+import {useState, useContext} from 'react';
 import { PostReviewComment } from './FetchData';
 import styles from "./NewCommentModal.module.css";
+import {UserContext} from "../context/UserContext";
 
 
 export default function NewCommentModal({ setShowModal, review_id, setRerenderMe }) {
+    const {currentUser, setCurrentUser} = useContext(UserContext);
+    console.log('user',currentUser.user)
   const [newCommentText, setNewCommentText] = useState("");
   return (
     <section className={styles["container_new-comment"]}>
@@ -40,7 +43,7 @@ export default function NewCommentModal({ setShowModal, review_id, setRerenderMe
   function handleSubmit(e) {
     e.preventDefault();
     console.log(newCommentText);
-    PostReviewComment(review_id, {username: 'cooljmessy', body: newCommentText})
+    PostReviewComment(review_id, {username: currentUser.user, body: newCommentText})
     .then(() => {
         setRerenderMe(+1)
     })
