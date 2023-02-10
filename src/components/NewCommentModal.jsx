@@ -48,16 +48,27 @@ export default function NewCommentModal({
   function handleSubmit(e) {
     e.preventDefault();
     setDisabled(true);
-    PostReviewComment(review_id, {
-      username: currentUser.user,
-      body: newCommentText,
-    }).then(() => {
-      setNewCommentText('Success!')
-      setTimeout(() => {
-        setShowModal(false);
-        setDisabled(false);
-        setRerenderMe(+1);
+    if(newCommentText.length <= 1){
+      setNewCommentText('Please enter a comment')
+      setTimeout(()=> {
+        setDisabled(false)
+        setNewCommentText('');
+      },2000)
+      setDisabled(false);
+    } else {
+
+      PostReviewComment(review_id, {
+        username: currentUser.user,
+        body: newCommentText,
+      }).then(() => {
+        setNewCommentText('Success!')
+        setTimeout(() => {
+          setShowModal(false);
+          setDisabled(false);
+          setNewCommentText('');
+          setRerenderMe(+1);
         },3000)
-    })
+      })
+    }
   }
-}
+  }
