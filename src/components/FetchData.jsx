@@ -22,6 +22,35 @@ export async function FetchReviewComments(id) {
   }
 }
 
+
+export async function PostReviewComment(review_id, comment) {
+  console.log(comment, review_id);
+  // const body = comment;
+  // try {
+  //   const res = await fetch(
+  //     `https://nc-games-test.onrender.com/api/reviews/${review_id}/comments`,
+  //     {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         // "Access-Control-Allow-Origin": "*"
+  //       },
+  //       body: JSON.stringify(body),
+  //     }
+  //     );
+  //     let data = res.json();
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+    try{
+      let res = await axios.post(`https://nc-games-test.onrender.com/api/reviews/${review_id}/comments`,comment)
+      let data = res.data;
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+
 export async function PatchReviewVotes(review_id, votes) {
   try {
     const res = await fetch(

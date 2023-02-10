@@ -1,28 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import { FetchReviewComments } from "./FetchData";
+import NewCommentModal from "./NewCommentModal";
 import styles from "./Comments.module.css";
 
 export default function Comments({ review_id }) {
   const [comments, setComments] = useState([]);
   const [commentsJSX, setCommentsJSX] = useState([]);
-  let notInitialRender = useRef(false);
+  const [showModal, setShowModal] = useState(false);
+  const [rerenderMe, setRerenderMe] = useState(1);
 
   useEffect(() => {
-    if (notInitialRender.current) {
-      
-      buildComments();
-      //.then Do the server patch.
-    } else {
-      FetchReviewComments(review_id).then((reviewComments) => {
-        setComments(reviewComments.comments);
-        notInitialRender.current = true;
-      });
-    }
-  }, [review_id, comments]);
+
+      FetchReviewComments(review_id)
+      .then((reviewComments) => {
+        setComments(reviewComments);
+        buildComments();
+    });
+  }, [review_id, comments, rerenderMe]);
 
   function buildComments() {
-    if (comments) {
-      const buildCommentsJSX = comments.map((comment) => {
+    if (comments.comments) {
+      const buildCommentsJSX = comments.comments.map((comment) => {
+
         const { author, body, comment_id, created_at, review_id, votes } =
           comment;
 
@@ -38,6 +37,7 @@ export default function Comments({ review_id }) {
             </header>
             <p className={styles.comment_text}>{body}</p>
             <footer className={styles["container_comment-votes"]}>
+
               <button
                 className={styles["button_down-vote"]}
                 onClick={(e) => {
@@ -84,9 +84,25 @@ export default function Comments({ review_id }) {
   return (
     <section className={styles.container_comments}>
       <h3>Comments Section</h3>
+      {showModal && (
+        <NewCommentModal
+          setShowModal={setShowModal}
+          review_id={review_id}
+          setRerenderMe={setRerenderMe}
+        />
+      )}
+      <button onClick={(e) => handleNewCommentModal(e)}>
+        {" "}
+        {showModal ? "Cancel" : "New Comment"}{" "}
+      </button>
       <ul className={styles["container_review-comments"]}>
         {commentsJSX.length > 0 && commentsJSX}
       </ul>
     </section>
   );
+
+  function handleNewCommentModal(e) {
+    e.preventDefault();
+    setShowModal(!showModal);
+  }
 }
