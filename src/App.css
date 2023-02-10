@@ -8,12 +8,18 @@
   /* --primary-bg-colour: #ebaf3f8e; */
   --primary-bg-colour: #88B2EE;
   --secondary-bg-colour: #1B529E;
+  --tertiary-bg-colour: #3269B8;
 
   --scrollbar-bar-colour: #1D3D6B;
   --scrollbar-bg-colour: #88B2EE;
   --scrollbar-border-colour: #3878D1;
   
   --primary-shadow:1px 2px 1px #1D3D6B, 0 0 1px #88B2EE, 0 1px 2px #1B529E;
+  --secondary-shadow: 0px 8px 8px rgb(18, 30, 57), 0px 6px 8px rgba(23, 23, 23, 0.727), -2px -1px 1px black, 2px 1px rgba(4, 142, 192, 0.487);
+  --primary-text-outline: 0px 0px 1px rgba(2, 20, 81, 0.2), 0px 1px 1px rgba(2, 20, 81, 0.2), 1px 0px 1px rgba(2, 20, 81, 0.2), 1px 1px 1px rgba(2, 20, 81, 0.2), -1px 0px 1px rgba(2, 20, 81, 0.2), 0px -1px 1px rgba(2, 20, 81, 0.2), -1px -1px 1px rgba(2, 20, 81, 0.2);
+  --secondary-text-outline: 0px 0px 1px rgba(247, 207, 8, 0.4), 0px 1px 1px rgba(246, 178, 19, 0.4), 1px 0px 1px rgba(250, 207, 36, 0.4), 1px 1px 1px rgba(254, 238, 13, 0.4), -1px 0px 1px rgba(2, 20, 81, 0.4), 0px -1px 1px rgba(246, 220, 51, 0.4), -1px -1px 1px rgba(244, 225, 48, 0.4);
+  
+  
   /*
     Shades: of prim-text: #2E62AB, #1D3D6B, <--Dark| Light --> #428EF7, #3878D1
     mono: #1D3D6B, #88B2EE, #3D506B, #3269B8

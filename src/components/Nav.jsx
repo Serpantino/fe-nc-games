@@ -8,7 +8,7 @@ export default function Nav() {
   }
 
   let activeStyle = {
-    textShadow: "0 10px 5px #fff",
+    textShadow: "0 6px 5px var(--secondary-bg-colour)",
     transform: "scaleX(110%)",
   };
 
@@ -17,16 +17,17 @@ export default function Nav() {
       <h3>NC Games</h3>
       <ul className= {styles['container_navbar-links']}>
        
-        <li className="navbar_link">
+        <li className={styles.navbar_link}>
           <NavLink
             to="/reviews"
             onClick={resetScroll}
             style={({ isActive }) => (isActive ? activeStyle : undefined)}
+            
           >
             Reviews
           </NavLink>
         </li>
-        <li className="navbar_link">
+        <li className={styles.navbar_link}>
           <NavLink
             to="/users"
             onClick={resetScroll}
