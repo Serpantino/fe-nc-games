@@ -1,0 +1,30 @@
+
+
+.page_categories {
+    background-color: green;
+}
+
+
+.container_categories-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: scroll;
+    max-height: 60vh;
+    max-width: 85vw;
+    margin-bottom: 1rem;
+    border: 05px double var(--secondary-bg-colour);
+    box-shadow: var(--primary-shadow);
+    background-color: var(--tertiary-bg-colour);
+    margin-top: 0.5rem;
+    
+    letter-spacing: 0.02rem;
+    line-height: 1.325rem;
+    color: wheat;
+    text-shadow: var(--primary-shadow);
+    padding: 1rem;
+    box-sizing: border-box;
+   
+    border-radius: 10px;
+    list-style: none;
+}

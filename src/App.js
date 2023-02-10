@@ -12,6 +12,7 @@ import Search from "./components/Search";
 import Home from "./pages/Home";
 import Review from "./pages/Review";
 import Users from "./pages/Users";
+import Categories from "./pages/Categories";
 import NotFound from "./pages/NotFound";
 
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/users" element={<Users />} />
           <Route path="/review/:review_id" element={<Review />} />
+          <Route path="/categories" element={<Categories />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Home>

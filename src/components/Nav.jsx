@@ -36,6 +36,11 @@ export default function Nav() {
             Users
           </NavLink>
         </li>
+        <li className={styles.navbar_link}>
+          <NavLink to="/categories" onClick={resetScroll} style={({isActive}) => (isActive ? activeStyle : undefined)}>
+            Categories
+          </NavLink>
+        </li>
       </ul>
       <UserSettings />
     </nav>
