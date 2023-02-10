@@ -6,7 +6,8 @@
     top: 20vh;
     left:6.25vw;
     background-color: var(--primary-bg-colour);
-    box-shadow: var(--primary-shadow);
+    box-shadow: var(--secondary-shadow);
+    border: 8px double var(--secondary-bg-colour);
     
 }
 
@@ -15,6 +16,8 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0.2rem;
+    color: wheat;
+    text-shadow:var(--primary-shadow);
 }
 
 .title_new-comment {

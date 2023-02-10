@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 export async function FetchReviews() {
   try {
@@ -22,7 +22,6 @@ export async function FetchReviewComments(id) {
   }
 }
 
-
 export async function PostReviewComment(review_id, comment) {
   console.log(comment, review_id);
   // const body = comment;
@@ -43,13 +42,17 @@ export async function PostReviewComment(review_id, comment) {
   //   } catch (error) {
   //     console.error(error);
   //   }
-    try{
-      let res = await axios.post(`https://nc-games-test.onrender.com/api/reviews/${review_id}/comments`,comment)
-      let data = res.data;
-      console.log(data);
-    } catch (error) {
-      console.error(error);
-    }
+  try {
+    let res = await axios.post(
+      `https://nc-games-test.onrender.com/api/reviews/${review_id}/comments`,
+      comment
+    );
+    let data = res.data;
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export async function PatchReviewVotes(review_id, votes) {
   try {
@@ -57,8 +60,8 @@ export async function PatchReviewVotes(review_id, votes) {
       `https://nc-games-test.onrender.com/api/reviews/${review_id}`,
       {
         method: "PATCH",
-        body: JSON.stringify({inc_votes: votes}),
-        headers: { "Content-type": "application/json; charset=UTF-8" }
+        body: JSON.stringify({ inc_votes: votes }),
+        headers: { "Content-type": "application/json; charset=UTF-8" },
       }
     );
     const data = await res.json();

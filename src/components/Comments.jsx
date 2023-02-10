@@ -91,7 +91,7 @@ export default function Comments({ review_id }) {
           setRerenderMe={setRerenderMe}
         />
       )}
-      <button onClick={(e) => handleNewCommentModal(e)}>
+      <button onClick={(e) => handleNewCommentModal(e)} className={styles['button_new-comment']}>
         {" "}
         {showModal ? "Cancel" : "New Comment"}{" "}
       </button>
