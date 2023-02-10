@@ -54,3 +54,16 @@
     margin-bottom: 0.5rem;
     text-transform: uppercase;
 }
+
+.button_submit:disabled {
+    filter: saturate(30%);
+    border-style: inset;
+}
+
+textarea:disabled {
+    background-color: var(--secondary-bg-colour);
+    color: black;
+    text-shadow: var(--primary-shadow);
+    text-align: center;
+    text-transform: uppercase;
+}
